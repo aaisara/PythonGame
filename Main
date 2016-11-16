@@ -1,0 +1,189 @@
+# The Chosen One
+# Interactive Fiction
+# Aaron Isara, Albert Chen
+
+import time
+
+def start():
+	print('THE CHOSEN ONE') 
+	print('by Aaron Isara and Albert Chen, Period 1')
+
+def user(kind):
+	#this function gathers information about the user; it will be used to write the story in a more personal way
+	#it takes a string that tells it to ask about a specific aspect of the user ('n' for name, 'g' for gender)
+	if kind == 'n':
+		confirmN = 'null'
+		name = raw_input('What is your name?')
+		confirmN = raw_input('Your name is '+name+'?')
+		if confirmN == 'yes' or confirmN == 'Yes':
+			return name
+		elif confirmN == 'no' or confirmN == 'No':
+			return user('n')
+		else:
+			print("I don't understand.")
+			return user('n')
+	if kind == 'g':
+		gender = raw_input('Are you a boy or a girl?')
+		#print(gender)
+		if gender == 'boy' or gender == 'girl' or gender == 'Boy' or gender == 'Girl':
+			confirmG = raw_input('You are a '+gender.lower()+'?')
+			if confirmG == 'yes' or confirmG == 'Yes':
+				return gender.lower()
+			elif confirmG == 'no' or confirmG == 'No':
+				return user('g')
+			else:
+				print("I don't understand.")
+				return user('g')
+		else:
+			#print(gender)
+			print('What is a '+gender.lower()+'?')
+			time.sleep(2)
+			return user('g')
+		
+def personalStory():
+	print('')
+	print('THE STORY SO FAR...')
+	time.sleep(1)
+	print('')
+	print('The king of a large fiefdom celebrated the 500th anniversary of the royal family with the announcement of the Chosen One. This grand hero was prophesized to defend the area\'s people from evil villains and be the savior of the kingdom.')
+	time.sleep(7)
+	print('')
+	print('A peasant farm worker named '+userName+' traveled to the kingdom to watch this ceremony. The '+userGen+' witnessed '+userGenPos+' childhood friend picked as the Chosen One. '+userName+' believed that '+userGenPos+' own skills were as good as the Chosen One\'s and was determined to show his superiority.')
+	time.sleep(10)
+	print('')
+	print('Years passed from the announcement, and a Dark Lord appears. The Chosen One was nowhere to be found, so nothing stopped the evil forces from terrorizing the lands. The king issued a quest to defeat the Dark Lord to his subjects. However, everyone was terrified of the malevolent sorceror, so no one was willing to accept-- no one but the peasant farmer.')
+	time.sleep(8)
+	print('')
+	print('The '+userGen+' has been waiting for years for an opportunity to demonstrate '+userGenPos+' abilities. '+userGenSub[0].upper()+userGenSub[1:len(userGenSub)]+' runs to the central castle to beg the king for permission to embark on such a quest. The king is hesitant but relents eventually.')
+	time.sleep(8)
+
+def vocationChoice():
+	print('')
+	print('The king offers you three, unique grandmasters to learn from.')
+	print('')
+	print("Who do you choose? Lieutenant (warrior), Merlin (mage), or Arrow (archer)")
+	mastery = raw_input()
+	if mastery == 'Lieutenant':
+		return 'war'
+	if mastery == 'Merlin':
+		return 'mage'
+	if mastery == 'Arrow':
+		return 'arch'
+
+def training(voc):
+	if voc == 'war':
+		print('')
+		print(userName + ' goes off to find Lieutenant.')
+		time.sleep(5)
+		print ('')
+		print('The ' + userGen + ' walks down the worn cobble path towards the warrior barracks.')
+		time.sleep(5)
+		print('')
+		print(userName + ' enters the stone building to find a man brandishing a slim blade.')
+		time.sleep(5)
+		print('')
+		print('Man: "You must be the new recruit His Majesty mentioned!"')
+		time.sleep(5)
+		print('')
+		print(userName + ' introduces ' +userGenObj+ 'self.')
+		time.sleep(3)
+		print('')
+		print('Man: "' + userName.upper() + ', you say? What a fine name! I am Sir Braum Lieutenant, and I will be your instructor in weapon combat!"')
+		time.sleep(5)
+		print('')
+		print('Lieutenant trains the peasant into a true warrior.')
+		time.sleep(7)
+		print('')
+		print('Lieutenant: "I deem you worthy to fell the Dark Lord! Go now before it is too late!"')
+		time.sleep(5)
+	if voc == 'mage':
+		print('')
+		print(userName + ' wanders off to search for Merlin.')
+		time.sleep(5)
+		print('')
+		print('The ' +userGen + ' observes a towering rampart in the distance and heads towards it.')
+		time.sleep(5)
+		print('')
+		print('After making ' + userGenPos + ' way through a dense forest, '+userName+' discovers and enters a cylindrical, stonebrick tower.')
+		time.sleep(5)
+		print('')
+		print('As soon as ' + userName + ' steps inside, a puff of blue smoke erupts from the ground, blocking ' + userGenPos + ' view.')
+		time.sleep(5)
+		print('')
+		print('An elderly, hunched man wearing a gray robe appears before you. He wears a crazy grin on his worn face.')
+		time.sleep(4)
+		print('')
+		print('???: "ARE YOU ' + userName.upper() +'?"')
+		time.sleep(4)
+		print('')
+		print(userName +' stands in disbelief.')
+		time.sleep(3)
+		print('')
+		print('???: "HOW DID I KNOW??? I\'M THE MAGE MERLIN!"')
+		time.sleep(3)
+		print('')
+		print(' Merlin: I AM ALREADY AWARE OF WHAT YOU WANT, AND I AM HERE TO GRANT THEM TO YOU!!!')
+		time.sleep(5)
+		print('')
+		print('For the next few hours, insane Merlin spends a rather awkward time teaching '+userName+' various spells.')
+		time.sleep(7)
+		print('')
+		print('Soon, the new spellcaster is on ' + userGenPos + ' way to the Dark Lord.')
+	if voc ==  'arch':
+		print('')
+		print(userName + ' walks towards the shooting range in the forest.')
+		time.sleep(4)
+		print('')
+		print ('The '+userGen+' eventually spots a wide plane through the trees.')
+		time.sleep(5)
+		print('')
+		print('A lone figure stands with its back to the '+userGen+'.')
+		time.sleep(5)
+		print('')
+		print(userName+' steps on a brittle twig, which sends a painfully loud crunch through the previously-silent field.')
+		time.sleep(5)
+		print('')
+		print('Within a second, the figure has turned around with a loaded arrow in his curved bow.')
+		time.sleep(4)
+		print('') 
+		print('In order to prove '+userGenPos+' trustworthiness, '+userName+' almost immediately blurts out '+userGenPos+' story and cause.')
+		time.sleep(5)
+		print('')
+		print('The man '+userName+' assumes to be the so-called "Arrow" appears satisfied with the information.')
+		time.sleep(5)
+		print('')
+		print('Arrow reaches inside his bag and retrieves a wooden bow. He tosses it to '+userName+' quietly and walks away.')
+		time.sleep(5)
+		print('')
+		print(userName+' runs after his mysterious mentor.')
+		time.sleep(3)
+		print('')
+		print('The '+userGen+' is taught by Arrow in projectile combat.')
+		time.sleep(4)
+		print('')
+		print('After a week, '+userName+' begins his journey to fight the Dark Lord.')
+		
+		
+		
+		
+start()
+time.sleep(3)
+userName = str(user('n'))
+userName = userName[0].upper() + userName[1:len(userName)]
+userGen = str(user('g'))
+userGenPos = 'null'
+userGenSub = 'null'
+userGenObj = 'null'
+if userGen == 'boy':
+	userGenPos = 'his'
+	userGenSub = 'he'
+	userGenObj = 'him'
+elif userGen == 'girl':
+	userGenPos = 'her'
+	userGenSub = 'she'
+	userGenObj = 'her'
+#print(userName+' '+userGen)
+time.sleep(2)
+personalStory()
+vocation = vocationChoice()
+training(vocation)
